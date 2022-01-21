@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LoginActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/main_background</item>
+    </style>
+
+    <style name="NavigationActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/other_background</item>
+    </style>
+
+    <style name="DisplayDataActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/other_background</item>
+    </style>
+
+    <style name="ProfileActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/other_background</item>
+    </style>
+
+    <style name="ListDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/blue_dark_1</item>
+    </style>
+
+</resources>
