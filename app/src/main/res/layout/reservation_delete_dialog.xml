@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_dark_7">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/dialogDeleteResWindowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/blue_dark_1"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:id="@+id/productNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteResProdNameET"
+            android:layout_marginTop="0dp"
+            android:text="Product: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteResProdNameET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:maxWidth="250dp"
+            android:maxLines="2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/amountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteResAmountET"
+            android:layout_marginTop="0dp"
+            android:text="Amount:"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteResAmountET"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteResProdNameET"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteResDateET"
+            android:layout_marginTop="5dp"
+            android:text="Date: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteResDateET"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteResAmountET"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteResPriceET"
+            android:layout_marginTop="5dp"
+            android:text="Price: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteResPriceET"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteResDateET"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteResEmpNameET"
+            android:layout_marginTop="5dp"
+            android:text="Employee: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteResEmpNameET"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteResPriceET"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteResEmpSurnameET"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteResPriceET"
+            android:layout_toRightOf="@+id/dialogDeleteResEmpNameET"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogDeleteResEmpNameET"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_navigation"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogDeleteResEmpNameET"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10sp"
+            android:background="@drawable/button_cancel"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</ScrollView>

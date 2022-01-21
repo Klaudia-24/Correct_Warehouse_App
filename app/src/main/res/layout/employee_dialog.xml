@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_dark_7">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/dialogWindowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/blue_dark_1"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:id="@+id/employeeNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textSize="18sp"
+            android:textColor="@color/blue_dark_2"
+            android:layout_marginTop="45dp"/>
+
+        <EditText
+            android:id="@+id/dialogEmpNameET"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_1"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeSurnameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surname:"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp"
+            android:layout_marginTop="105dp"/>
+        <EditText
+            android:id="@+id/dialogEmpSurnameET"
+            android:inputType="text"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18sp"
+            android:textColor="@color/blue_dark_2"
+            android:ems="10"
+            android:background="@drawable/rounded_border"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="100dp"/>
+
+        <TextView
+            android:id="@+id/employeeSalaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salary: "
+            android:textSize="18sp"
+            android:textColor="@color/blue_dark_2"
+            android:layout_marginTop="165dp"/>
+
+        <EditText
+            android:id="@+id/dialogEmpSalaryET"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="160dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address:"
+            android:textSize="18sp"
+            android:textColor="@color/blue_dark_2"
+            android:layout_marginTop="225dp"/>
+
+        <EditText
+            android:id="@+id/dialogEmpAddressET"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="220dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_navigation"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="300dp"
+            android:layout_alignParentLeft="true"
+            />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_cancel"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="300dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</ScrollView>

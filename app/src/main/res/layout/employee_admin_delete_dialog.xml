@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_dark_7">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminWindowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:text="Title"
+            android:textColor="@color/blue_dark_1"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/employeeNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminName"
+            android:layout_marginTop="5dp"
+            android:text="Name: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminName"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_1"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeSurnameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminSurname"
+            android:layout_marginTop="5dp"
+            android:text="Surname:"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminSurname"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteEmpAdminName"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeSalaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminSalary"
+            android:layout_marginTop="5dp"
+            android:text="Salary: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminSalary"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteEmpAdminSurname"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminAddress"
+            android:layout_marginTop="5dp"
+            android:text="Address:"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogDeleteEmpAdminSalary"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:maxWidth="250dp"
+            android:maxLines="2"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeLoginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminLogin"
+            android:layout_marginTop="5dp"
+            android:text="Login: "
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminLogin"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteEmpAdminAddress"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeEmailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminEmail"
+            android:layout_marginTop="5dp"
+            android:text="E-mail:"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogDeleteEmpAdminLogin"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:maxWidth="250dp"
+            android:maxLines="2"
+            android:paddingBottom="10dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/employeeRoleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dialogDeleteEmpAdminRole"
+            android:layout_marginTop="5dp"
+            android:text="Role:"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialogDeleteEmpAdminRole"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dialogDeleteEmpAdminEmail"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/blue_dark_2"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogDeleteEmpAdminRole"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_navigation"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogDeleteEmpAdminRole"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10sp"
+            android:background="@drawable/button_cancel"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</ScrollView>
