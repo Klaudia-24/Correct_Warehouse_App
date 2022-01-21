@@ -2,22 +2,64 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.correct_warehouse_app">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Correct_Warehouse_App">
+        android:theme="@style/Theme.Correct_Warehouse_App"
+        android:usesCleartextTraffic="true">
+
+
+
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.example.correct_warehouse_app.view.activity.NavigationActivity"
+            android:exported="false"
+            android:theme="@style/NavigationActivityStyle"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name="com.example.correct_warehouse_app.view.activity.LoginActivity"
+            android:exported="true"
+            android:theme="@style/LoginActivityStyle"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.example.correct_warehouse_app.view.activity.DisplayDataActivity"
+            android:exported="false"
+            android:theme="@style/DisplayDataActivityStyle"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name="com.example.correct_warehouse_app.view.activity.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/ProfileActivityStyle"
+            android:screenOrientation="portrait"
+            />
+
     </application>
 
 </manifest>
