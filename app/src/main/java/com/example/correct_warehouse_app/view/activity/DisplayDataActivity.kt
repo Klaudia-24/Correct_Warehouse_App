@@ -12,10 +12,10 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.incorrect_warehouse_app.R
-import com.example.incorrect_warehouse_app.model.*
-import com.example.incorrect_warehouse_app.utils.HashString
-import com.example.incorrect_warehouse_app.viewModel.DisplayDataViewModel
+import com.example.correct_warehouse_app.R
+import com.example.correct_warehouse_app.model.*
+import com.example.correct_warehouse_app.utils.HashString
+import com.example.correct_warehouse_app.viewModel.DisplayDataViewModel
 import kotlinx.android.synthetic.main.activity_display_data.*
 import kotlinx.android.synthetic.main.activity_display_data.view.*
 import kotlinx.android.synthetic.main.employee_admin_delete_dialog.view.*
