@@ -14,19 +14,6 @@
         android:theme="@style/Theme.Correct_Warehouse_App"
         android:usesCleartextTraffic="true">
 
-
-
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
-
         <activity
             android:name="com.example.correct_warehouse_app.view.activity.NavigationActivity"
             android:exported="false"
