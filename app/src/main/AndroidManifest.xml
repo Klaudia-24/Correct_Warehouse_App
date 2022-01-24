@@ -15,13 +15,6 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name="com.example.correct_warehouse_app.view.activity.NavigationActivity"
-            android:exported="false"
-            android:theme="@style/NavigationActivityStyle"
-            android:screenOrientation="portrait"
-            />
-
-        <activity
             android:name="com.example.correct_warehouse_app.view.activity.LoginActivity"
             android:exported="true"
             android:theme="@style/LoginActivityStyle"
@@ -34,10 +27,19 @@
         </activity>
 
         <activity
+            android:name="com.example.correct_warehouse_app.view.activity.NavigationActivity"
+            android:exported="false"
+            android:theme="@style/NavigationActivityStyle"
+            android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
+            />
+
+        <activity
             android:name="com.example.correct_warehouse_app.view.activity.DisplayDataActivity"
             android:exported="false"
             android:theme="@style/DisplayDataActivityStyle"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             />
 
         <activity
@@ -45,6 +47,8 @@
             android:exported="false"
             android:theme="@style/ProfileActivityStyle"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
+            android:label=""
             />
 
     </application>

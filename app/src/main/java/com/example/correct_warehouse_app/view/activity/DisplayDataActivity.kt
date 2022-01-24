@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.employee_admin_password_dialog.view.*
 import kotlinx.android.synthetic.main.employee_delete_dialog.view.*
 import kotlinx.android.synthetic.main.employee_delete_dialog.view.dialogEmpDeleteWindowTitle
 import kotlinx.android.synthetic.main.employee_dialog.view.*
+import kotlinx.android.synthetic.main.employee_unblock_dialog.view.*
 import kotlinx.android.synthetic.main.new_reservation_dialog.view.*
 import kotlinx.android.synthetic.main.product_delete_dialog.view.*
 import kotlinx.android.synthetic.main.product_delete_dialog.view.confirmButton
@@ -1092,6 +1093,89 @@ class DisplayDataActivity : AppCompatActivity() {
                     initRetrofitInstanceNewEmployees()
                 }
             }
+            "Blocked employees" ->{
+
+                layoutParamsDeleteButton.setMargins(440, 10, 50, 10)
+
+                passwordSetButton.isClickable = false
+                passwordSetButton.isEnabled = false
+                passwordSetButton.isVisible = false
+
+                reserveButton.isClickable = false
+                reserveButton.isEnabled = false
+                reserveButton.isVisible = false
+
+                modifyButton.isClickable = false
+                modifyButton.isEnabled = false
+                modifyButton.isVisible = false
+
+                addButton.isClickable = false
+                addButton.isEnabled = false
+                addButton.isVisible = false
+
+                deleteButton.layoutParams = layoutParamsDeleteButton
+
+                initRetrofitInstanceBlockedEmployees()
+
+                deleteButton.setOnClickListener {
+
+                    if(selectedItem==null){
+                        Toast.makeText(this@DisplayDataActivity, "No employee selected", Toast.LENGTH_SHORT).show()
+                    }else {
+
+                        val unblockEmployeeAdminDialogWindow = LayoutInflater.from(this).inflate(R.layout.employee_unblock_dialog, null)
+                        val mBuilder = AlertDialog.Builder(this).setView(unblockEmployeeAdminDialogWindow)
+                        unblockEmployeeAdminDialogWindow.dialogEmpUnblockWindowTitle.text = "Unblock employee"
+                        val mAlertDialog = mBuilder.show()
+
+                        var blockedEmployees: List<Employee>? = null
+                        displayDataViewModel.getBlockedEmployeeList().observe(this, {
+                            blockedEmployees = it
+                        })
+
+                        var selectedEmployeeId: Int? = null
+                        var empName: String? = null
+                        var empSurname: String? = null
+
+                        selectedItem?.let { it1 ->
+
+                            empName = blockedEmployees?.get(it1)?.name.toString()
+                            empSurname = blockedEmployees?.get(it1)?.surname.toString()
+                            selectedEmployeeId = blockedEmployees?.get(it1)?.employeeid.toString().toInt()
+                        }
+
+                        unblockEmployeeAdminDialogWindow.dialogUnblockEmpName.text = empName
+                        unblockEmployeeAdminDialogWindow.dialogUnblockEmpSurname.text = empSurname
+
+                        unblockEmployeeAdminDialogWindow.confirmButton.setOnClickListener {
+
+                            if(selectedEmployeeId!=null) {
+                                displayDataViewModel.unblockEmployeeAdmin(selectedEmployeeId!!){
+                                    if(it){
+                                        initRetrofitInstanceBlockedEmployees()
+                                        selectedEmployeeId = null
+                                    }
+                                }
+                            }
+
+                            mAlertDialog.dismiss()
+                        }
+
+                        unblockEmployeeAdminDialogWindow.cancelButton.setOnClickListener {
+
+                            mAlertDialog.dismiss()
+                        }
+                    }
+                }
+
+                refreshButton.setOnClickListener {
+
+                    dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
+                    errorInfo.setText("")
+                    initRetrofitInstanceBlockedEmployees()
+                }
+
+            }
         }
     }
 
@@ -1198,6 +1282,26 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
+    private fun initRetrofitInstanceBlockedEmployees(){
+        displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
+        displayDataViewModel.getBlockedEmployeeDataAdmin(){
+            if(!it){
+
+                dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))
+                errorInfo.setText("Server error")
+
+                Toast.makeText(
+                    this@DisplayDataActivity,
+                    "Cannot connect to the server",
+                    android.widget.Toast.LENGTH_LONG).show()
+            }
+        }
+        //observer
+        displayDataViewModel.getBlockedEmployeeList().observe(this,{
+            initAdapterBlockedEmployees(it)
+        })
+    }
+
     private fun initAdapterEmployees(employeesList: List<Employee>){
         recViewDisplayData.layoutManager = LinearLayoutManager(this)
         val adapter = EmployeeAdapter(employeesList)
@@ -1215,6 +1319,17 @@ class DisplayDataActivity : AppCompatActivity() {
         val adapter = NewEmployeeAdapter(employeesList)
         recViewDisplayData.adapter = adapter
         adapter.setOnItemClickListener(object : NewEmployeeAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+                selectedItem = position
+            }
+        })
+    }
+    private fun initAdapterBlockedEmployees(employeesList: List<Employee>){
+        recViewDisplayData.layoutManager = LinearLayoutManager(this)
+        val adapter = BlockedEmployeeAdapter(employeesList)
+        recViewDisplayData.adapter = adapter
+        adapter.setOnItemClickListener(object : BlockedEmployeeAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
 
                 selectedItem = position

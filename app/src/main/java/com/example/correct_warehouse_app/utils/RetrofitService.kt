@@ -61,6 +61,9 @@ interface RetrofitService {
     @GET("admin/employees/new")//
     fun getAllNewEmployeesAdmin(): Call<List<Employee>>
 
+    @GET("admin/employees/blocked")//
+    fun getAllBlockedEmployeesAdmin(): Call<List<Employee>>
+
     @POST("admin/employees")
     fun addNewEmployeeAdmin(@Body employeeAdminData: EmployeeAdminData): Call<String>
 
@@ -75,6 +78,9 @@ interface RetrofitService {
 
     @DELETE("admin/employees/{id}")
     fun deleteEmployeeAdmin(@Path("id") id: Int): Call<String>
+
+    @DELETE("admin/employees/unblock/{id}")
+    fun unblockEmployeeAdmin(@Path("id") id: Int): Call<String>
 
     // ROLE
     @GET("roles")

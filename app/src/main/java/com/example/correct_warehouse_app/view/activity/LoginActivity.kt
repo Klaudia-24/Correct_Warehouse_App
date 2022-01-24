@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
                         Intent(this, NavigationActivity::class.java).also {
                             it.putExtra("EXTRA_CURRENT_USER", currUser)
+                            it.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
                             startActivity(it)
                         }
                     }

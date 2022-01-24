@@ -83,5 +83,15 @@ class AdministratorNavFragment: Fragment() {
                 it.startActivity(intent)
             }
         }
+
+        blockedEmployeeButton.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, DisplayDataActivity::class.java).also {
+                    it.putExtra("EXTRA_CURRENT_USER", currUser)
+                    it.putExtra("EXTRA_LIST_TYPE", "Blocked employees")
+                }
+                it.startActivity(intent)
+            }
+        }
     }
 }

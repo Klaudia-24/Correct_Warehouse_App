@@ -17,6 +17,7 @@ class DisplayDataViewModel: ViewModel() {
     private var employeeList = MutableLiveData<List<Employee>>()
     private var employeeAdminList = MutableLiveData<List<EmployeeAdminData>>()
     private var newEmployeeList = MutableLiveData<List<Employee>>()
+    private var blockedEmployeeList = MutableLiveData<List<Employee>>()
     var roleList = MutableLiveData<List<Role>>()
 
     val retrofitService = RetrofitInstance.getRetrofitInstance().create(RetrofitService::class.java)
@@ -43,6 +44,10 @@ class DisplayDataViewModel: ViewModel() {
 
     fun getNewEmployeeList(): MutableLiveData<List<Employee>> {
         return newEmployeeList
+    }
+
+    fun getBlockedEmployeeList(): MutableLiveData<List<Employee>> {
+        return blockedEmployeeList
     }
 
     fun getProductsData(onResult: (Boolean)->Unit){
@@ -264,6 +269,21 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
+    fun getBlockedEmployeeDataAdmin(onResult: (Boolean)->Unit){
+
+        retrofitService.getAllBlockedEmployeesAdmin().enqueue(object : Callback<List<Employee>> {
+            override fun onResponse(call: Call<List<Employee>>, response: Response<List<Employee>>){
+
+                blockedEmployeeList.value = response.body()
+                onResult(true)
+            }
+            override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
+
+                onResult(false)
+            }
+        })
+    }
+
     fun addNewEmployeeDataAdmin(newEmployeeAdmin: EmployeeAdminData, onResult: (Boolean)->Unit){
 
         retrofitService.addNewEmployeeAdmin(newEmployeeAdmin).enqueue(object : Callback<String> {
@@ -323,6 +343,20 @@ class DisplayDataViewModel: ViewModel() {
     fun deleteEmployeeAdmin(id: Int, onResult: (Boolean)->Unit){
 
         retrofitService.deleteEmployeeAdmin(id).enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>){
+
+                onResult(response.body().toBoolean())
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+
+                onResult(false)
+            }
+        })
+    }
+
+    fun unblockEmployeeAdmin(id: Int, onResult: (Boolean)->Unit){
+
+        retrofitService.unblockEmployeeAdmin(id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
