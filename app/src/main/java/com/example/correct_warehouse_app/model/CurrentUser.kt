@@ -11,5 +11,6 @@ data class CurrentUser(
     val login: String,
     val email: String,
     val roleid: String,
-    val rolename: String
+    val rolename: String,
+    val userkey: String
 ) : Serializable

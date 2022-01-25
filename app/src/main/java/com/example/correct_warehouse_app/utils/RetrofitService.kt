@@ -12,9 +12,12 @@ interface RetrofitService {
     @POST("currentUser")//
     fun getCurrentUser(@Body login: String): Call<CurrentUser>
 
+    @POST("verifyUser")//
+    fun verifyCurrentUser(@Body userKey: String): Call<String>
+
     // PRODUCTS
-    @GET("products")//
-    fun getAllProducts(): Call<List<Product>>
+    @POST("products/data")//
+    fun getAllProducts(@Body userKey: String): Call<List<Product>>
 
     @GET("products/lowStock")//
     fun getLowStockProducts(): Call<List<Product>>

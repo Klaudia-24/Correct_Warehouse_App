@@ -141,7 +141,7 @@ class DisplayDataActivity : AppCompatActivity() {
                     else -> null
                 }
 
-                initRetrofitInstanceProducts()
+                initRetrofitInstanceProducts(currUser.userkey)
 
                 reserveButton.setOnClickListener {
 
@@ -195,7 +195,7 @@ class DisplayDataActivity : AppCompatActivity() {
                                 displayDataViewModel.addNewReservationData(newReservation){
 
                                     if(it){
-                                        initRetrofitInstanceProducts()
+                                        initRetrofitInstanceProducts(currUser.userkey)
                                     }
                                 }
                                 mAlertDialog.dismiss()
@@ -234,7 +234,7 @@ class DisplayDataActivity : AppCompatActivity() {
                             displayDataViewModel.addNewProductData(newProduct) {
 
                                 if (it) {
-                                    initRetrofitInstanceProducts()
+                                    initRetrofitInstanceProducts(currUser.userkey)
                                 }
                             }
 
@@ -301,7 +301,7 @@ class DisplayDataActivity : AppCompatActivity() {
                                 displayDataViewModel.modifyProduct(product){
 
                                     if(it){
-                                        initRetrofitInstanceProducts()
+                                        initRetrofitInstanceProducts(currUser.userkey)
                                     }
                                 }
                                 mAlertDialog.dismiss()
@@ -356,7 +356,7 @@ class DisplayDataActivity : AppCompatActivity() {
                             if(selectedProductId!=null) {
                                 displayDataViewModel.deleteProduct(selectedProductId!!){
                                     if(it){
-                                        initRetrofitInstanceProducts()
+                                        initRetrofitInstanceProducts(currUser.userkey)
                                         selectedProductId = null
                                     }
                                 }
@@ -376,7 +376,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                     dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                     errorInfo.setText("")
-                    initRetrofitInstanceProducts()
+                    initRetrofitInstanceProducts(currUser.userkey)
                 }
             }
             "Employees" -> {
@@ -1179,9 +1179,9 @@ class DisplayDataActivity : AppCompatActivity() {
         }
     }
 
-    private fun initRetrofitInstanceProducts(){
+    private fun initRetrofitInstanceProducts(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getProductsData(){
+        displayDataViewModel.getProductsData(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))

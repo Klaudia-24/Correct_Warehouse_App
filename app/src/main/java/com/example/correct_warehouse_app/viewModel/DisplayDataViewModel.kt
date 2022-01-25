@@ -50,9 +50,9 @@ class DisplayDataViewModel: ViewModel() {
         return blockedEmployeeList
     }
 
-    fun getProductsData(onResult: (Boolean)->Unit){
+    fun getProductsData(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getAllProducts().enqueue(object : Callback<List<Product>> {
+        retrofitService.getAllProducts(userKey).enqueue(object : Callback<List<Product>> {
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>){
 
                 productList.value = response.body()
@@ -367,5 +367,4 @@ class DisplayDataViewModel: ViewModel() {
             }
         })
     }
-
 }
