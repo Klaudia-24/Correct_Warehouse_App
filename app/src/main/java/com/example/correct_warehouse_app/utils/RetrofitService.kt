@@ -25,6 +25,12 @@ interface RetrofitService {
     @POST("products")//
     fun addNewProduct(@Body product: Product): Call<String>
 
+    @POST("products")
+    fun addNewProduct_2(
+        @Header ("userKey") userKey: String,
+        @Body product: Product
+    ): Call<String>
+
     @PUT("products")//
     fun modifyProduct(@Body product: Product): Call<String>
 

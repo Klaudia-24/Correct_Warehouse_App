@@ -80,9 +80,23 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun addNewProductData(newProduct: Product, onResult: (Boolean)->Unit){
+//    fun addNewProductData(newProduct: Product, onResult: (Boolean)->Unit){
+//
+//        retrofitService.addNewProduct(newProduct).enqueue(object : Callback<String> {
+//            override fun onResponse(call: Call<String>, response: Response<String>){
+//
+//                onResult(response.body().toBoolean())
+//            }
+//            override fun onFailure(call: Call<String>, t: Throwable) {
+//
+//                onResult(false)
+//            }
+//        })
+//    }
 
-        retrofitService.addNewProduct(newProduct).enqueue(object : Callback<String> {
+    fun addNewProductData(userKey: String, newProduct: Product, onResult: (Boolean)->Unit){
+
+        retrofitService.addNewProduct_2(userKey, newProduct).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())

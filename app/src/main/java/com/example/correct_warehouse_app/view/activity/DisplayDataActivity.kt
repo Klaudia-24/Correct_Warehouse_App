@@ -231,7 +231,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
 
                         if(newProduct!=null) {
-                            displayDataViewModel.addNewProductData(newProduct) {
+                            displayDataViewModel.addNewProductData(currUser.userkey, newProduct) {
 
                                 if (it) {
                                     initRetrofitInstanceProducts(currUser.userkey)
