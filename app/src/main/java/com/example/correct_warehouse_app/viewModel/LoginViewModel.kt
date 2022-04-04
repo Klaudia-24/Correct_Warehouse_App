@@ -1,6 +1,5 @@
 package com.example.correct_warehouse_app.viewModel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.correct_warehouse_app.model.*
 import com.example.correct_warehouse_app.utils.HashString

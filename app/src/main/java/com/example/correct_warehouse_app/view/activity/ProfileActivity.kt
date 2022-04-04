@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.correct_warehouse_app.R
@@ -91,19 +90,16 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onPause() {
         stopHandler()
-        Log.d("TEST", "prof onPauseActivity change")
         super.onPause()
     }
 
     override fun onResume() {
         super.onResume()
         startHandler()
-        Log.d("TEST", "prof onResume_restartActivity")
     }
 
     override fun onDestroy() {
         super.onDestroy()
         stopHandler()
-        Log.d("TEST", "prof onDestroyActivity change")
     }
 }
