@@ -80,20 +80,6 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-//    fun addNewProductData(newProduct: Product, onResult: (Boolean)->Unit){
-//
-//        retrofitService.addNewProduct(newProduct).enqueue(object : Callback<String> {
-//            override fun onResponse(call: Call<String>, response: Response<String>){
-//
-//                onResult(response.body().toBoolean())
-//            }
-//            override fun onFailure(call: Call<String>, t: Throwable) {
-//
-//                onResult(false)
-//            }
-//        })
-//    }
-
     fun addNewProductData(userKey: String, newProduct: Product, onResult: (Boolean)->Unit){
 
         retrofitService.addNewProduct(userKey, newProduct).enqueue(object : Callback<String> {
@@ -155,20 +141,6 @@ class DisplayDataViewModel: ViewModel() {
     fun addNewReservationData(userKey: String, newReservation: NewReservation, onResult: (Boolean)->Unit){
 
         retrofitService.addNewReservation(userKey, newReservation).enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>){
-
-                onResult(response.body().toBoolean())
-            }
-            override fun onFailure(call: Call<String>, t: Throwable) {
-
-                onResult(false)
-            }
-        })
-    }
-
-    fun modifyReservation(userKey: String, reservation: Reservation, onResult: (Boolean)->Unit){
-
-        retrofitService.modifyReservation(userKey, reservation).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -292,20 +264,6 @@ class DisplayDataViewModel: ViewModel() {
                 onResult(true)
             }
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
-
-                onResult(false)
-            }
-        })
-    }
-
-    fun addNewEmployeeDataAdmin(userKey: String, newEmployeeAdmin: EmployeeAdminData, onResult: (Boolean)->Unit){
-
-        retrofitService.addNewEmployeeAdmin(userKey, newEmployeeAdmin).enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>){
-
-                onResult(response.body().toBoolean())
-            }
-            override fun onFailure(call: Call<String>, t: Throwable) {
 
                 onResult(false)
             }

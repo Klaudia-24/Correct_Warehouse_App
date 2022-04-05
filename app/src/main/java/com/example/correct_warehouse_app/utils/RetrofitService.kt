@@ -6,24 +6,21 @@ import retrofit2.http.*
 
 interface RetrofitService {
 
-    @POST("signIn")//
+    @POST("signIn")
     fun isSignInSuccessful(@Body signInRequest: SignInRequest): Call<String>
 
-    @POST("currentUser")//
+    @POST("currentUser")
     fun getCurrentUser(@Body login: String): Call<CurrentUser>
 
-    @POST("verifyUser")//
+    @POST("verifyUser")
     fun verifyCurrentUser(@Body userKey: String): Call<String>
 
     // PRODUCTS
-    @POST("products/data")//
+    @POST("products/data")
     fun getAllProducts(@Body userKey: String): Call<List<Product>>
 
-    @GET("products/lowStock")//
+    @GET("products/lowStock")
     fun getLowStockProducts(@Header ("userKey") userKey: String, ): Call<List<Product>>
-
-//    @POST("products")//
-//    fun addNewProduct(@Body product: Product): Call<String>
 
     @POST("products")
     fun addNewProduct(
@@ -31,20 +28,20 @@ interface RetrofitService {
         @Body product: Product
     ): Call<String>
 
-    @PUT("products")//
+    @PUT("products")
     fun modifyProduct(
         @Header ("userKey") userKey: String,
         @Body product: Product
         ): Call<String>
 
-    @DELETE("products/{id}")//
+    @DELETE("products/{id}")
     fun deleteProduct(@Header ("userKey") userKey: String, @Path("id") id: Int): Call<String>
 
     // RESERVATIONS
-    @GET("reservations")//
+    @GET("reservations")
     fun getAllReservations(@Header ("userKey") userKey: String): Call<List<Reservation>>
 
-    @POST("reservations")//
+    @POST("reservations")
     fun addNewReservation(@Header ("userKey") userKey: String, @Body newReservation: NewReservation): Call<String>
 
     @PUT("reservations")
@@ -54,26 +51,26 @@ interface RetrofitService {
     fun deleteReservation(@Header ("userKey") userKey: String, @Path("id") id: Int): Call<String>
 
     // EMPLOYEES
-    @GET("employees")//
+    @GET("employees")
     fun getAllEmployees(@Header ("userKey") userKey: String): Call<List<Employee>>
 
-    @POST("employees")//
+    @POST("employees")
     fun addNewEmployee(@Header ("userKey") userKey: String, @Body employee: Employee): Call<String>
 
-    @PUT("employees")//
+    @PUT("employees")
     fun modifyEmployee(@Header ("userKey") userKey: String, @Body employee: Employee): Call<String>
 
     @DELETE("employees/{id}")
     fun deleteEmployee(@Header ("userKey") userKey: String, @Path("id") id: Int): Call<String>
 
     // EMPLOYEES ADMIN
-    @GET("admin/employees")//
+    @GET("admin/employees")
     fun getAllEmployeesAdmin(@Header ("userKey") userKey: String): Call<List<EmployeeAdminData>>
 
-    @GET("admin/employees/new")//
+    @GET("admin/employees/new")
     fun getAllNewEmployeesAdmin(@Header ("userKey") userKey: String): Call<List<Employee>>
 
-    @GET("admin/employees/blocked")//
+    @GET("admin/employees/blocked")
     fun getAllBlockedEmployeesAdmin(@Header ("userKey") userKey: String): Call<List<Employee>>
 
     @POST("admin/employees")
