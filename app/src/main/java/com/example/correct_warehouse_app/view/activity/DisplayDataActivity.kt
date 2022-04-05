@@ -192,7 +192,7 @@ class DisplayDataActivity : AppCompatActivity() {
                             }
 
                             if (newReservation != null) {
-                                displayDataViewModel.addNewReservationData(newReservation){
+                                displayDataViewModel.addNewReservationData(currUser.userkey, newReservation){
 
                                     if(it){
                                         initRetrofitInstanceProducts(currUser.userkey)
@@ -298,7 +298,7 @@ class DisplayDataActivity : AppCompatActivity() {
                             }
 
                             if (product != null) {
-                                displayDataViewModel.modifyProduct(product){
+                                displayDataViewModel.modifyProduct(currUser.userkey, product){
 
                                     if(it){
                                         initRetrofitInstanceProducts(currUser.userkey)
@@ -354,7 +354,7 @@ class DisplayDataActivity : AppCompatActivity() {
                         deleteProductDialogWindow.confirmButton.setOnClickListener {
 
                             if(selectedProductId!=null) {
-                                displayDataViewModel.deleteProduct(selectedProductId!!){
+                                displayDataViewModel.deleteProduct(currUser.userkey, selectedProductId!!){
                                     if(it){
                                         initRetrofitInstanceProducts(currUser.userkey)
                                         selectedProductId = null
@@ -391,7 +391,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                         layoutParamsSetPasswordButton.setMargins(250, 5, 50, 10)
 
-                        initRetrofitInstanceEmployeesAdmin()
+                        initRetrofitInstanceEmployeesAdmin(currUser.userkey)
 
                         passwordSetButton.setOnClickListener {
 
@@ -460,11 +460,12 @@ class DisplayDataActivity : AppCompatActivity() {
 
                                             if (employeeLoginDataRequest != null) {
                                                 displayDataViewModel.modifyEmployeeAdminLogin(
+                                                    currUser.userkey,
                                                     employeeLoginDataRequest
                                                 ) {
 
                                                     if (it) {
-                                                        initRetrofitInstanceEmployeesAdmin()
+                                                        initRetrofitInstanceEmployeesAdmin(currUser.userkey)
                                                     }
                                                 }
                                                 mAlertDialog.dismiss()
@@ -517,10 +518,10 @@ class DisplayDataActivity : AppCompatActivity() {
 
                                 if(newEmployee != null) {
 
-                                    displayDataViewModel.addNewEmployeeData(newEmployee) {
+                                    displayDataViewModel.addNewEmployeeData(currUser.userkey, newEmployee) {
 
                                         if (it) {
-                                            initRetrofitInstanceEmployeesAdmin()
+                                            initRetrofitInstanceEmployeesAdmin(currUser.userkey)
                                         }
                                     }
                                     mAlertDialog.dismiss()
@@ -586,10 +587,10 @@ class DisplayDataActivity : AppCompatActivity() {
                                     }
 
                                     if (employee != null) {
-                                        displayDataViewModel.modifyEmployeeAdmin(employee){
+                                        displayDataViewModel.modifyEmployeeAdmin(currUser.userkey, employee){
 
                                             if(it){
-                                                initRetrofitInstanceEmployeesAdmin()
+                                                initRetrofitInstanceEmployeesAdmin(currUser.userkey)
                                             }
                                         }
                                         mAlertDialog.dismiss()
@@ -652,9 +653,9 @@ class DisplayDataActivity : AppCompatActivity() {
                                 deleteEmployeeAdminDialogWindow.confirmButton.setOnClickListener {
 
                                     if(selectedEmployeeId!=null) {
-                                        displayDataViewModel.deleteEmployeeAdmin(selectedEmployeeId!!){
+                                        displayDataViewModel.deleteEmployeeAdmin(currUser.userkey, selectedEmployeeId!!){
                                             if(it){
-                                                initRetrofitInstanceEmployeesAdmin()
+                                                initRetrofitInstanceEmployeesAdmin(currUser.userkey)
                                                 selectedEmployeeId = null
                                             }
                                         }
@@ -674,7 +675,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                             dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                             errorInfo.setText("")
-                            initRetrofitInstanceEmployeesAdmin()
+                            initRetrofitInstanceEmployeesAdmin(currUser.userkey)
                         }
 
                     }
@@ -694,7 +695,7 @@ class DisplayDataActivity : AppCompatActivity() {
                         modifyButton.layoutParams = layoutParamsModifyButton
                         deleteButton.layoutParams = layoutParamsDeleteButton
 
-                        initRetrofitInstanceEmployees()
+                        initRetrofitInstanceEmployees(currUser.userkey)
 
                         addButton.setOnClickListener {
 
@@ -720,10 +721,10 @@ class DisplayDataActivity : AppCompatActivity() {
                                 }
 
                                 if(newEmployee != null) {
-                                    displayDataViewModel.addNewEmployeeData(newEmployee!!) {
+                                    displayDataViewModel.addNewEmployeeData(currUser.userkey, newEmployee!!) {
 
                                         if (it) {
-                                            initRetrofitInstanceEmployees()
+                                            initRetrofitInstanceEmployees(currUser.userkey)
                                         }
                                     }
                                     mAlertDialog.dismiss()
@@ -784,10 +785,10 @@ class DisplayDataActivity : AppCompatActivity() {
 
 
                                     if (employee != null) {
-                                        displayDataViewModel.modifyEmployee(employee!!){
+                                        displayDataViewModel.modifyEmployee(currUser.userkey, employee!!){
 
                                             if(it){
-                                                initRetrofitInstanceEmployees()
+                                                initRetrofitInstanceEmployees(currUser.userkey)
                                             }
                                         }
                                         mAlertDialog.dismiss()
@@ -840,9 +841,9 @@ class DisplayDataActivity : AppCompatActivity() {
                                 deleteEmployeeDialogWindow.confirmButton.setOnClickListener {
 
                                     if(selectedEmployeeId!=null) {
-                                        displayDataViewModel.deleteEmployee(selectedEmployeeId!!){
+                                        displayDataViewModel.deleteEmployee(currUser.userkey, selectedEmployeeId!!){
                                             if(it){
-                                                initRetrofitInstanceEmployees()
+                                                initRetrofitInstanceEmployees(currUser.userkey)
                                                 selectedEmployeeId = null
                                             }
                                         }
@@ -862,7 +863,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                             dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                             errorInfo.setText("")
-                            initRetrofitInstanceEmployees()
+                            initRetrofitInstanceEmployees(currUser.userkey)
                         }
                     }
                     else -> null
@@ -886,10 +887,10 @@ class DisplayDataActivity : AppCompatActivity() {
                 modifyButton.isVisible = false
                 deleteButton.layoutParams = layoutParamsDeleteButton
 
-                initRetrofitInstanceReservations()
+                initRetrofitInstanceReservations(currUser.userkey)
 
                 when (currUser.roleid) {
-                    "admin" -> {
+                    "admin", "salRep" -> {
 
                         deleteButton.setOnClickListener {
 
@@ -936,9 +937,9 @@ class DisplayDataActivity : AppCompatActivity() {
                                 deleteResDialogWindow.confirmButton.setOnClickListener {
 
                                     if(selectedResId!=null) {
-                                        displayDataViewModel.deleteReservation(selectedResId!!){
+                                        displayDataViewModel.deleteReservation(currUser.userkey, selectedResId!!){
                                             if(it){
-                                                initRetrofitInstanceReservations()
+                                                initRetrofitInstanceReservations(currUser.userkey)
                                                 selectedResId = null
                                             }
                                         }
@@ -955,9 +956,6 @@ class DisplayDataActivity : AppCompatActivity() {
                         }
 
                     }
-                    "salRep" -> {
-
-                    }
                     else -> null
                 }
 
@@ -966,7 +964,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                     dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                     errorInfo.setText("")
-                    initRetrofitInstanceReservations()
+                    initRetrofitInstanceReservations(currUser.userkey)
                 }
 
             }
@@ -992,13 +990,13 @@ class DisplayDataActivity : AppCompatActivity() {
                 deleteButton.isEnabled = false
                 deleteButton.isVisible = false
 
-                initRetrofitInstanceLowStockProducts()
+                initRetrofitInstanceLowStockProducts(currUser.userkey)
 
                 refreshButton.setOnClickListener {
 
                     dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                     errorInfo.setText("")
-                    initRetrofitInstanceLowStockProducts()
+                    initRetrofitInstanceLowStockProducts(currUser.userkey)
                 }
 
             }
@@ -1024,7 +1022,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                 addButton.layoutParams = layoutParamsAddButton
 
-                initRetrofitInstanceNewEmployees()
+                initRetrofitInstanceNewEmployees(currUser.userkey)
 
                 addButton.setOnClickListener {
 
@@ -1069,10 +1067,10 @@ class DisplayDataActivity : AppCompatActivity() {
                             }
 
                             if (employeeLoginDataRequest != null) {
-                                displayDataViewModel.addNewEmployeeAdminLogin(employeeLoginDataRequest!!) {
+                                displayDataViewModel.addNewEmployeeAdminLogin(currUser.userkey, employeeLoginDataRequest!!) {
 
                                     if (it) {
-                                        initRetrofitInstanceNewEmployees()
+                                        initRetrofitInstanceNewEmployees(currUser.userkey)
                                     }
                                 }
                                 mAlertDialog.dismiss()
@@ -1090,7 +1088,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                     dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                     errorInfo.setText("")
-                    initRetrofitInstanceNewEmployees()
+                    initRetrofitInstanceNewEmployees(currUser.userkey)
                 }
             }
             "Blocked employees" ->{
@@ -1115,7 +1113,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                 deleteButton.layoutParams = layoutParamsDeleteButton
 
-                initRetrofitInstanceBlockedEmployees()
+                initRetrofitInstanceBlockedEmployees(currUser.userkey)
 
                 deleteButton.setOnClickListener {
 
@@ -1150,9 +1148,9 @@ class DisplayDataActivity : AppCompatActivity() {
                         unblockEmployeeAdminDialogWindow.confirmButton.setOnClickListener {
 
                             if(selectedEmployeeId!=null) {
-                                displayDataViewModel.unblockEmployeeAdmin(selectedEmployeeId!!){
+                                displayDataViewModel.unblockEmployeeAdmin(currUser.userkey, selectedEmployeeId!!){
                                     if(it){
-                                        initRetrofitInstanceBlockedEmployees()
+                                        initRetrofitInstanceBlockedEmployees(currUser.userkey)
                                         selectedEmployeeId = null
                                     }
                                 }
@@ -1172,7 +1170,7 @@ class DisplayDataActivity : AppCompatActivity() {
 
                     dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_dark_8, null))
                     errorInfo.setText("")
-                    initRetrofitInstanceBlockedEmployees()
+                    initRetrofitInstanceBlockedEmployees(currUser.userkey)
                 }
 
             }
@@ -1210,9 +1208,9 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
-    private fun initRetrofitInstanceReservations(){
+    private fun initRetrofitInstanceReservations(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getReservationsData(){
+        displayDataViewModel.getReservationsData(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))
@@ -1242,9 +1240,9 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
-    private fun initRetrofitInstanceEmployees(){
+    private fun initRetrofitInstanceEmployees(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getEmployeeData(){
+        displayDataViewModel.getEmployeeData(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))
@@ -1262,9 +1260,9 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
-    private fun initRetrofitInstanceNewEmployees(){
+    private fun initRetrofitInstanceNewEmployees(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getNewEmployeeDataAdmin(){
+        displayDataViewModel.getNewEmployeeDataAdmin(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))
@@ -1282,9 +1280,9 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
-    private fun initRetrofitInstanceBlockedEmployees(){
+    private fun initRetrofitInstanceBlockedEmployees(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getBlockedEmployeeDataAdmin(){
+        displayDataViewModel.getBlockedEmployeeDataAdmin(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))
@@ -1337,9 +1335,9 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
-    private fun initRetrofitInstanceEmployeesAdmin(){
+    private fun initRetrofitInstanceEmployeesAdmin(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getEmployeeDataAdmin(){
+        displayDataViewModel.getEmployeeDataAdmin(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))
@@ -1369,9 +1367,9 @@ class DisplayDataActivity : AppCompatActivity() {
         })
     }
 
-    private fun initRetrofitInstanceLowStockProducts(){
+    private fun initRetrofitInstanceLowStockProducts(userKey: String){
         displayDataViewModel = ViewModelProvider(this).get(DisplayDataViewModel::class.java)
-        displayDataViewModel.getLowStockProductsData(){
+        displayDataViewModel.getLowStockProductsData(userKey){
             if(!it){
 
                 dataTitle.setTextColor(ResourcesCompat.getColor(resources, R.color.error_color, null))

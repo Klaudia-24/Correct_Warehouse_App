@@ -65,9 +65,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun getLowStockProductsData(onResult: (Boolean)->Unit){
+    fun getLowStockProductsData(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getLowStockProducts().enqueue(object : Callback<List<Product>> {
+        retrofitService.getLowStockProducts(userKey).enqueue(object : Callback<List<Product>> {
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>){
 
                 lowStockProductList.value = response.body()
@@ -96,7 +96,7 @@ class DisplayDataViewModel: ViewModel() {
 
     fun addNewProductData(userKey: String, newProduct: Product, onResult: (Boolean)->Unit){
 
-        retrofitService.addNewProduct_2(userKey, newProduct).enqueue(object : Callback<String> {
+        retrofitService.addNewProduct(userKey, newProduct).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -108,9 +108,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun modifyProduct(product: Product, onResult: (Boolean)->Unit){
+    fun modifyProduct(userKey: String, product: Product, onResult: (Boolean)->Unit){
 
-        retrofitService.modifyProduct(product).enqueue(object : Callback<String> {
+        retrofitService.modifyProduct(userKey, product).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -122,9 +122,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun deleteProduct(id: Int, onResult: (Boolean)->Unit){
+    fun deleteProduct(userKey: String, id: Int, onResult: (Boolean)->Unit){
 
-        retrofitService.deleteProduct(id).enqueue(object : Callback<String> {
+        retrofitService.deleteProduct(userKey, id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -138,9 +138,9 @@ class DisplayDataViewModel: ViewModel() {
 
     // RESERVATIONS
 
-    fun getReservationsData(onResult: (Boolean)->Unit){
+    fun getReservationsData(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getAllReservations().enqueue(object : Callback<List<Reservation>> {
+        retrofitService.getAllReservations(userKey).enqueue(object : Callback<List<Reservation>> {
             override fun onResponse(call: Call<List<Reservation>>, response: Response<List<Reservation>>){
 
                 reservationList.value = response.body()
@@ -152,9 +152,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun addNewReservationData(newReservation: NewReservation, onResult: (Boolean)->Unit){
+    fun addNewReservationData(userKey: String, newReservation: NewReservation, onResult: (Boolean)->Unit){
 
-        retrofitService.addNewReservation(newReservation).enqueue(object : Callback<String> {
+        retrofitService.addNewReservation(userKey, newReservation).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -166,9 +166,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun modifyReservation(reservation: Reservation, onResult: (Boolean)->Unit){
+    fun modifyReservation(userKey: String, reservation: Reservation, onResult: (Boolean)->Unit){
 
-        retrofitService.modifyReservation(reservation).enqueue(object : Callback<String> {
+        retrofitService.modifyReservation(userKey, reservation).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -180,9 +180,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun deleteReservation(id: Int, onResult: (Boolean)->Unit){
+    fun deleteReservation(userKey: String, id: Int, onResult: (Boolean)->Unit){
 
-        retrofitService.deleteReservation(id).enqueue(object : Callback<String> {
+        retrofitService.deleteReservation(userKey, id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -196,9 +196,9 @@ class DisplayDataViewModel: ViewModel() {
 
     // EMPLOYEE
 
-    fun getEmployeeData(onResult: (Boolean)->Unit){
+    fun getEmployeeData(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getAllEmployees().enqueue(object : Callback<List<Employee>> {
+        retrofitService.getAllEmployees(userKey).enqueue(object : Callback<List<Employee>> {
             override fun onResponse(call: Call<List<Employee>>, response: Response<List<Employee>>){
 
                 employeeList.value = response.body()
@@ -211,9 +211,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun addNewEmployeeData(newEmployee: Employee, onResult: (Boolean)->Unit){
+    fun addNewEmployeeData(userKey: String, newEmployee: Employee, onResult: (Boolean)->Unit){
 
-        retrofitService.addNewEmployee(newEmployee).enqueue(object : Callback<String> {
+        retrofitService.addNewEmployee(userKey, newEmployee).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -225,9 +225,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun modifyEmployee(employee: Employee, onResult: (Boolean)->Unit){
+    fun modifyEmployee(userKey: String, employee: Employee, onResult: (Boolean)->Unit){
 
-        retrofitService.modifyEmployee(employee).enqueue(object : Callback<String> {
+        retrofitService.modifyEmployee(userKey, employee).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -239,9 +239,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun deleteEmployee(id: Int, onResult: (Boolean)->Unit){
+    fun deleteEmployee(userKey: String, id: Int, onResult: (Boolean)->Unit){
 
-        retrofitService.deleteEmployee(id).enqueue(object : Callback<String> {
+        retrofitService.deleteEmployee(userKey, id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -253,9 +253,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun getEmployeeDataAdmin(onResult: (Boolean)->Unit){
+    fun getEmployeeDataAdmin(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getAllEmployeesAdmin().enqueue(object : Callback<List<EmployeeAdminData>> {
+        retrofitService.getAllEmployeesAdmin(userKey).enqueue(object : Callback<List<EmployeeAdminData>> {
             override fun onResponse(call: Call<List<EmployeeAdminData>>, response: Response<List<EmployeeAdminData>>){
 
                 employeeAdminList.value = response.body()
@@ -268,9 +268,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun getNewEmployeeDataAdmin(onResult: (Boolean)->Unit){
+    fun getNewEmployeeDataAdmin(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getAllNewEmployeesAdmin().enqueue(object : Callback<List<Employee>> {
+        retrofitService.getAllNewEmployeesAdmin(userKey).enqueue(object : Callback<List<Employee>> {
             override fun onResponse(call: Call<List<Employee>>, response: Response<List<Employee>>){
 
                 newEmployeeList.value = response.body()
@@ -283,9 +283,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun getBlockedEmployeeDataAdmin(onResult: (Boolean)->Unit){
+    fun getBlockedEmployeeDataAdmin(userKey: String, onResult: (Boolean)->Unit){
 
-        retrofitService.getAllBlockedEmployeesAdmin().enqueue(object : Callback<List<Employee>> {
+        retrofitService.getAllBlockedEmployeesAdmin(userKey).enqueue(object : Callback<List<Employee>> {
             override fun onResponse(call: Call<List<Employee>>, response: Response<List<Employee>>){
 
                 blockedEmployeeList.value = response.body()
@@ -298,9 +298,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun addNewEmployeeDataAdmin(newEmployeeAdmin: EmployeeAdminData, onResult: (Boolean)->Unit){
+    fun addNewEmployeeDataAdmin(userKey: String, newEmployeeAdmin: EmployeeAdminData, onResult: (Boolean)->Unit){
 
-        retrofitService.addNewEmployeeAdmin(newEmployeeAdmin).enqueue(object : Callback<String> {
+        retrofitService.addNewEmployeeAdmin(userKey, newEmployeeAdmin).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -312,9 +312,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun modifyEmployeeAdmin(employee: EmployeeAdminData, onResult: (Boolean)->Unit){
+    fun modifyEmployeeAdmin(userKey: String, employee: EmployeeAdminData, onResult: (Boolean)->Unit){
 
-        retrofitService.modifyEmployeeAdmin(employee).enqueue(object : Callback<String> {
+        retrofitService.modifyEmployeeAdmin(userKey, employee).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -326,9 +326,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun addNewEmployeeAdminLogin(employeeLoginDataRequest: EmployeeLoginDataRequest, onResult: (Boolean)->Unit){
+    fun addNewEmployeeAdminLogin(userKey: String, employeeLoginDataRequest: EmployeeLoginDataRequest, onResult: (Boolean)->Unit){
 
-        retrofitService.addEmployeeAdminLogin(employeeLoginDataRequest).enqueue(object : Callback<String> {
+        retrofitService.addEmployeeAdminLogin(userKey, employeeLoginDataRequest).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -340,9 +340,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun modifyEmployeeAdminLogin(employeeLoginDataRequest: EmployeeLoginDataRequest, onResult: (Boolean)->Unit){
+    fun modifyEmployeeAdminLogin(userKey: String, employeeLoginDataRequest: EmployeeLoginDataRequest, onResult: (Boolean)->Unit){
 
-        retrofitService.modifyEmployeeAdminLogin(employeeLoginDataRequest).enqueue(object : Callback<String> {
+        retrofitService.modifyEmployeeAdminLogin(userKey, employeeLoginDataRequest).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -354,9 +354,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun deleteEmployeeAdmin(id: Int, onResult: (Boolean)->Unit){
+    fun deleteEmployeeAdmin(userKey: String, id: Int, onResult: (Boolean)->Unit){
 
-        retrofitService.deleteEmployeeAdmin(id).enqueue(object : Callback<String> {
+        retrofitService.deleteEmployeeAdmin(userKey, id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
@@ -368,9 +368,9 @@ class DisplayDataViewModel: ViewModel() {
         })
     }
 
-    fun unblockEmployeeAdmin(id: Int, onResult: (Boolean)->Unit){
+    fun unblockEmployeeAdmin(userKey: String, id: Int, onResult: (Boolean)->Unit){
 
-        retrofitService.unblockEmployeeAdmin(id).enqueue(object : Callback<String> {
+        retrofitService.unblockEmployeeAdmin(userKey, id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>){
 
                 onResult(response.body().toBoolean())
